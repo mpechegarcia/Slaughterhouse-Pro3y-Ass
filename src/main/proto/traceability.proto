@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+
+package traceability;
+
+service TraceabilityService {
+
+  rpc GetAnimalsForProduct(ProductRequest)
+      returns (AnimalsResponse);
+
+  rpc GetProductsForAnimal(AnimalRequest)
+      returns (ProductsResponse);
+}
+
+message ProductRequest {
+  int32 productId = 1;
+}
+
+message AnimalRequest {
+  int32 animalId = 1;
+}
+
+message AnimalsResponse {
+  repeated int32 animalIds = 1;
+}
+
+message ProductsResponse {
+  repeated int32 productIds = 1;
+}
